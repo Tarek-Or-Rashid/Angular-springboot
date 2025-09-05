@@ -17,7 +17,18 @@ public class User {
     @Column(unique = true)
     private String username;
     
-public int getId() {
+
+    @Column(name = "password")
+    private String password;
+	
+    @Column(unique = true)
+    private String email;
+	
+    @Column(name = "role")
+    private String role;
+
+	
+    public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -47,11 +58,4 @@ public int getId() {
 	public void setRole(String role) {
 		this.role = role;
 	}
-@Column(name = "password")
-    private String password;
-@Column(unique = true)
-    private String email;
-@Column(name = "role")
-    private String role;
-
 }
