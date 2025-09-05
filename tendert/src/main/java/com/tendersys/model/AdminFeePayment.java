@@ -18,6 +18,7 @@ public class AdminFeePayment {
     @JoinColumn(name = "tender_id", nullable = false)
     private Tender tender;
 
+    
     @Column(nullable = false)
     private double amount;  
 
