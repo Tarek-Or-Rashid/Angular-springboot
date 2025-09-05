@@ -49,14 +49,12 @@ public class AdminWalletService {
             payment.setTotalAmount(newTotal);
             payment.setPaymentDate(LocalDateTime.now());
 
-            // Set other optional fields if you want
-            // payment.setBidderName("System");
-            // payment.setPaymentMethod("Credit");
+           
 
             return adminWalletRepository.save(payment);
         }
 
 	
-		// TODO Auto-generated method stub
+		
 
 }
