@@ -34,15 +34,15 @@ public class TenderPaymentService {
         // Find the Tender by ID or throw exception if not found
         Tender tender = tenderRepository.findById(tenderId)
                 .orElseThrow(() -> new RuntimeException("Tender not found with ID: " + tenderId));
-
-        
+       
         LocalDateTime now = LocalDateTime.now();
 
         // Save payment details to AdminFeePayment
+        
         AdminFeePayment feePayment = new AdminFeePayment(tender, amount, paymentMethod, description, now);
         adminFeePaymentRepository.save(feePayment);
 
-        // Save payment info to AdminWallet for record
+        
         AdminWallet walletEntry = new AdminWallet();
         walletEntry.setTenderId(tenderId);
         walletEntry.setBidId(null); 
