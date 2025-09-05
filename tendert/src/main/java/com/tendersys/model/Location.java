@@ -6,11 +6,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 @Entity(name = "location")
 @Table(name = "location")
-public class Location {
 	
+public class Location {	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	
+    @Column(name = "state")
+    private String state;
+    @Column(name = "district")
+    private String district;
+    @Column(name = "address")
+    private String address;
+
+    private Long id;
+
+   public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
 	public String getState() {
 		return state;
 	}
@@ -29,20 +49,4 @@ public class Location {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
-   public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-@Column(name = "state")
-    private String state;
-   @Column(name = "district")
-    private String district;
-   @Column(name = "address")
-    private String address;
 }
