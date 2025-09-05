@@ -25,10 +25,11 @@ public class PaymentService {
 
     @Transactional
     public Payment savePayment(Payment payment) {
-        // 1. Payment save korbo
+       
         Payment savedPayment = paymentRepository.save(payment);
 
         // 2. AdminWallet e oi payment add korbo
+        
         AdminWallet walletEntry = new AdminWallet();
         walletEntry.setTenderId(savedPayment.getTenderId());
         walletEntry.setBidId(savedPayment.getBidId());
