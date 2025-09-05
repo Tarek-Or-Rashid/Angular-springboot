@@ -42,7 +42,7 @@ public class Bid {
     @Column(name = "document")
     private List<String> documents;
 
-    // Constructors
+   
     public Bid() {}
 
     
