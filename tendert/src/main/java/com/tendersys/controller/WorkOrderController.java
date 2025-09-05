@@ -18,17 +18,19 @@ import java.util.Optional;
 @RequestMapping("/api/workorders")
 public class WorkOrderController {
 
-	 private final WorkOrderService workOrderService;
-	    private final BidRepository bidRepository;
-@Autowired
-private WorkOrderRepository workOrderRepository;
+  private final WorkOrderService workOrderService;
+  private final BidRepository bidRepository;
+	
+  @Autowired
+  private WorkOrderRepository workOrderRepository;
+	
 	    public WorkOrderController(WorkOrderService workOrderService, BidRepository bidRepository) {
 	        this.workOrderService = workOrderService;
 	        this.bidRepository = bidRepository;
 	    }
 
-	    @PostMapping("/createFromBid/{bidId}")
-	    public ResponseEntity<?> createWorkOrder(@PathVariable Long bidId) {
+   @PostMapping("/createFromBid/{bidId}")
+	public ResponseEntity<?> createWorkOrder(@PathVariable Long bidId) {
 	        Optional<Bid> bidOpt = bidRepository.findById(bidId);
 	        if (!bidOpt.isPresent()) {
 	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bid not found");
