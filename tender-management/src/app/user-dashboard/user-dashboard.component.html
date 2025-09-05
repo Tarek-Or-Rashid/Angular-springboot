@@ -1,0 +1,563 @@
+<div class="enterprise-dashboard">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="isSidebarCollapsed">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <img src="assets/images/Opportunity-Slogan.png" alt="Enterprise Logo" class="dashboard-logo">
+      <button class="collapse-btn" (click)="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <ul>
+        <!-- Dashboard Links -->
+        
+        
+        <!-- Tender Management Dropdown -->
+       <li class="nav-group">
+  <div class="nav-group-title">Tender Management</div>
+  <div class="dropdown-container">
+    <a class="nav-link" (click)="toggleDropdown('tender')">
+      <i class="fas fa-tasks"></i>
+      <span>Tender Options</span>
+      <i class="fas fa-caret-down dropdown-icon"></i>
+    </a>
+    <div class="dropdown-items" *ngIf="dropdownStates['tender']">
+      <a routerLink="/tender-list" class="dropdown-item"><i class="fas fa-list"></i> Tender List</a>
+     <a [routerLink]="['/tender', 1, 'awrd']" class="dropdown-item"><i class="fas fa-trophy"></i> Award Work Orders</a>
+      <!-- New routes -->
+      <a routerLink="/sources" class="dropdown-item"><i class="fas fa-database"></i> Sources</a>
+      <a routerLink="/locations" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Locations</a>
+      <a routerLink="/categories" class="dropdown-item"><i class="fas fa-tags"></i> Categories</a>
+    </div>
+  </div>
+</li>
+
+
+        <!-- Bid Management -->
+        <li class="nav-group">
+          <div class="nav-group-title">Bid Management</div>
+          <div class="dropdown-container">
+            <a class="nav-link" (click)="toggleDropdown('bid')">
+              <i class="fas fa-gavel"></i>
+              <span>Bid Options</span>
+              <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown-items" *ngIf="dropdownStates['bid']">
+             <a routerLink="/awerd">Award</a>
+              <a routerLink="/my-bids" class="dropdown-item"><i class="fas fa-folder-open"></i> My Bids</a>
+              <a routerLink="/bid-details" class="dropdown-item"><i class="fas fa-search"></i> Bid Details</a>
+              <a routerLink="/bid-list-admin" class="dropdown-item"><i class="fas fa-list-ol"></i> Bid List (Admin)</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Evaluation -->
+        <li class="nav-group">
+          <div class="nav-group-title">Evaluation</div>
+          <div class="dropdown-container">
+            <a class="nav-link" (click)="toggleDropdown('evaluation')">
+              <i class="fas fa-clipboard-check"></i>
+              <span>Evaluation Options</span>
+              <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown-items" *ngIf="dropdownStates['evaluation']">
+              <a routerLink="/evaluate-bid" class="dropdown-item"><i class="fas fa-check-circle"></i> Evaluate Bid</a>
+              <a routerLink="/evaluation-history" class="dropdown-item"><i class="fas fa-history"></i> Evaluation History</a>
+              <a routerLink="/evaluation-logs" class="dropdown-item"><i class="fas fa-clipboard-list"></i> Evaluation Logs</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- User Management -->
+        <li class="nav-group">
+          <div class="nav-group-title">User Management</div>
+          <div class="dropdown-container">
+            <a class="nav-link" (click)="toggleDropdown('user')">
+              <i class="fas fa-users-cog"></i>
+              <span>User Options</span>
+              <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown-items" *ngIf="dropdownStates['user']">
+              <a routerLink="/user-list" class="dropdown-item"><i class="fas fa-users"></i> User List</a>
+              <a routerLink="/create-user" class="dropdown-item"><i class="fas fa-user-plus"></i> Create User</a>
+              <a routerLink="/edit-user" class="dropdown-item"><i class="fas fa-user-edit"></i> Edit User</a>
+              <a routerLink="/user-roles" class="dropdown-item"><i class="fas fa-user-cog"></i> User Roles</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Reports -->
+        <!-- Reports -->
+<li class="nav-group">
+  <div class="nav-group-title">Reports</div>
+  <div class="dropdown-container">
+    <a class="nav-link" (click)="toggleDropdown('report')">
+      <i class="fas fa-chart-bar"></i>
+      <span>Report Options</span>
+      <i class="fas fa-caret-down dropdown-icon"></i>
+    </a>
+    <div class="dropdown-items" *ngIf="dropdownStates['report']">
+      <a routerLink="/workorder/123" class="dropdown-item">
+        <i class="fas fa-briefcase"></i> Work Order
+      </a>
+      <a routerLink="/work-pogress" class="dropdown-item">
+        <i class="fas fa-tasks"></i> Work Progress
+      </a>
+      <a routerLink="/work-report" class="dropdown-item">
+        <i class="fas fa-file-alt"></i> Work Report
+      </a>
+    </div>
+  </div>
+</li>
+
+
+        <!-- System Settings -->
+        <!-- Payments -->
+<li class="nav-group">
+  <div class="nav-group-title">Payments</div>
+  <div class="dropdown-container">
+    <a class="nav-link" (click)="toggleDropdown('payments')">
+      <i class="fas fa-credit-card"></i>
+      <span>Payment Options</span>
+      <i class="fas fa-caret-down dropdown-icon"></i>
+    </a>
+    <div class="dropdown-items" *ngIf="dropdownStates['payments']">
+      <a routerLink="/payment" class="dropdown-item">
+        <i class="fas fa-wallet"></i> General Payment
+      </a>
+      <a routerLink="/tender-payment/123" class="dropdown-item">
+        <i class="fas fa-file-invoice"></i> Tender Payment
+      </a>
+      <a routerLink="/work-payment" class="dropdown-item">
+        <i class="fas fa-hand-holding-usd"></i> Work Payment
+      </a>
+    </div>
+  </div>
+</li>
+
+      </ul>
+    </nav>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <button class="btn btn-support">
+        <i class="fas fa-life-ring"></i>
+        <span>Enterprise Support</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main-content" [class.expanded]="isSidebarCollapsed">
+    <!-- Top Navigation Bar -->
+    <header class="enterprise-header">
+      <div class="top-bar">
+        <div class="container">
+          <div> #1 Tender Management Platform</div>
+          <div class="top-links">
+            <a href="#"><i class="fas fa-phone-alt"></i> 1800 123 456</a>
+            <a href="#"><i class="fas fa-envelope"></i> support.com</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="header-container">
+        <div class="header-left">
+          <h1 class="enterprise-title">
+            <img src="assets/images/Opportunity-Slogan.png" alt="Logo" class="header-logo">
+            Tender Management System
+          </h1>
+        </div>
+        <div class="header-right">
+          <div class="user-actions">
+            <button class="btn btn-outline" (click)="openSearchModal()">
+              <i class="fas fa-search"></i> Advanced Search
+            </button>
+          </div>
+          <div class="user-profile">
+            <div class="profile-info">
+              <span class="company-name">{{currentCompany}}</span>
+              <span class="user-role">Procurement Manager</span>
+            </div>
+            <div class="profile-dropdown">
+              <!-- <img src="assets/o9-Tender-1920X560.jpg" alt="User Avatar" class="profile-avatar" (click)="toggleProfileDropdown()"> -->
+              <div class="dropdown-menu" *ngIf="showProfileDropdown">
+                <a href="#"><i class="fas fa-user-cog"></i> Account Settings</a>
+                <a href="#"><i class="fas fa-bell"></i> Notification Preferences</a>
+                <a href="#"><i class="fas fa-file-alt"></i> My Documents</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-notification">
+            <i class="fas fa-bell"></i>
+            <span class="badge badge-danger">{{unreadNotifications}}</span>
+          </button>
+        </div>
+      </div>
+      
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-home"></i> Home</a></li>
+          <li>
+            <a href="#" class="dropdown-toggle"><i class="fas fa-search"></i>Tender-type <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown">
+              <li><a routerLink="/tenders/advanced">Government</a></li>
+              <li><a routerLink="/tenders/closing-soon">Private</a></li>
+              <li><a routerLink="/tenders/new">World Bank</a></li>
+              <li><a routerLink="/tenders/awarded">ADB Bank</a></li>
+              <li><a routerLink="/tenders/awarded">UNICEF</a></li>
+              <li><a routerLink="/tenders/awarded">NGO</a></li>
+              <li><a routerLink="/tenders/awarded">UN</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle"><i class="fas fa-map-marker-alt"></i> By State <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown">
+              <li><a routerLink="/tenders/state/dhaka">Dhaka</a></li>
+              <li><a routerLink="/tenders/state/chittagong">Chittagong</a></li>
+              <li><a routerLink="/tenders/state/mymensingh">Mymensingh</a></li>
+              <li><a routerLink="/tenders/state/sylhet">Sylhet</a></li>
+              <li><a routerLink="/tenders/state/rangpur">Rangpur</a></li>
+              <li><a routerLink="/tenders/state/rajshahi">Rajshahi</a></li>
+              <li><a routerLink="/tenders/state/barisal">Barisal</a></li>
+              <li><a routerLink="/tenders/state/comilla">Comilla</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="#" class="dropdown-toggle"><i class="fas fa-industry"></i> By Industry <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown">
+              <li><a routerLink="/tenders/industry/construction">Construction</a></li>
+              <li><a routerLink="/tenders/industry/it">IT & Telecoms</a></li>
+              <li><a routerLink="/tenders/industry/healthcare">Healthcare</a></li>
+              <li><a routerLink="/tenders/industry/education">Education</a></li>
+              <li><a routerLink="/tenders/industry/transport">Transport</a></li>
+              <li><a routerLink="/tenders/industry/defence">Defence</a></li>
+              <li><a routerLink="/tenders/industry/agriculture">Agriculture</a></li>
+              <li><a routerLink="/tenders/industry/water-supply">Water Supply</a></li>
+              <li><a routerLink="/tenders/industry/power-supply">Power Supply</a></li>
+              <li><a routerLink="/tenders/industry/garments">Garments</a></li>
+            </ul>
+          </li>
+        <li>
+          <a routerLink="/tenders" routerLinkActive="active">
+            <i class="fas fa-file-contract"></i>
+            <span class="nav-text">Active Tenders</span>
+            <span class="badge badge-primary">{{ activeTendersCount }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/bid" routerLinkActive="active">
+            <i class="fas fa-handshake"></i>
+            <span class="nav-text">My Bids</span>
+            <span class="badge badge-warning">{{ activeBidsCount }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/notifications" routerLinkActive="active">
+            <i class="fas fa-bell"></i>
+            <span class="nav-text">Notifications</span>
+            <span class="badge badge-danger">{{ unreadNotifications }}</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/analytics" routerLinkActive="active">
+            <i class="fas fa-chart-pie"></i>
+            <span class="nav-text">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile" routerLinkActive="active">
+            <i class="fas fa-user-tie"></i>
+            <span class="nav-text">Company Profile</span>
+          </a>
+        </li>
+
+        </ul>
+        <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h1 class="display-4 fw-bold mb-4">Tenders Management System & Procurement Opportunities</h1>
+            <p class="lead mb-4">Access thousands of government and private sector tenders from around the world in one place.</p>
+            <div class="d-flex gap-2">
+              <a routerLink="/tenders" class="btn btn-primary btn-lg px-4"><i class="fas fa-search"></i> Browse Tenders</a>
+              <a href="#" class="btn btn-outline-light btn-lg px-4"><i class="fas fa-play-circle"></i> How It Works</a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="hero-image">
+              <img src="assets/images/Opportunity-Slogan.png" alt="Tender Management Illustration">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="quick-stats">
+      <div class="stats-card bg-primary">
+        <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+        <div class="card-content">
+          <h3>Active Tenders</h3>
+          <p>{{activeTendersCount}}</p>
+          <a routerLink="/tenders" class="card-link">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="stats-card bg-success">
+        <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="card-content">
+          <h3>Awarded Bids</h3>
+          <p>{{awardedBidsCount}}</p>
+          <a routerLink="/bid/awarded" class="card-link">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="stats-card bg-warning">
+        <div class="card-icon"><i class="fas fa-clock"></i></div>
+        <div class="card-content">
+          <h3>Pending Approvals</h3>
+          <p>{{pendingApprovalsCount}}</p>
+          <a routerLink="/bid/pending" class="card-link">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="stats-card bg-info">
+        <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+        <div class="card-content">
+          <h3>Total Value</h3>
+          <p>{{totalBidValue | currency}}</p>
+          <a routerLink="/analytics" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-content">
+      <div class="row">
+        <!-- Left Column -->
+        <div class="col-lg-8">
+          <!-- Tender Overview Section -->
+          <section class="tender-overview">
+            <div class="section-header">
+              <h2><i class="fas fa-binoculars"></i> Tender Overview</h2>
+              <div class="section-actions">
+                <button class="btn btn-sm btn-outline" (click)="refreshTenderData()">
+                  <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+              </div>
+            </div>
+            <div class="overview-content">
+              <div class="tender-chart">
+                <canvas #tenderChart></canvas>
+              </div>
+              <div class="tender-summary">
+                <div class="summary-item">
+                  <h4><i class="fas fa-hourglass-half"></i> Upcoming Deadlines</h4>
+                  <ul class="deadline-list">
+                    <li *ngFor="let deadline of upcomingDeadlines">
+                      <div class="deadline-info">
+                        <span class="deadline-name">{{deadline.name}}</span>
+                        <span class="deadline-date">{{deadline.date | date:'mediumDate'}}</span>
+                      </div>
+                      <span class="badge" [ngClass]="{
+                        'badge-danger': deadline.priority === 'high',
+                        'badge-warning': deadline.priority === 'medium',
+                        'badge-info': deadline.priority === 'low'
+                      }">
+                        {{deadline.daysRemaining}} days left
+                      </span>
+                    </li>
+                  </ul>
+                  <a routerLink="/tenders/closing-soon" class="view-all">View All Upcoming Deadlines <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Tenders Section -->
+          <section class="recent-tenders">
+            <div class="section-header">
+              <h2><i class="fas fa-list"></i> Recommended Tenders</h2>
+              <div class="section-actions">
+                <button class="btn btn-sm btn-outline" (click)="customizeRecommendations()">
+                  <i class="fas fa-cog"></i> Customize
+                </button>
+              </div>
+            </div>
+            <div class="tender-list">
+              <div class="tender-item" *ngFor="let tender of recommendedTenders">
+                <div class="tender-header">
+                  <h3>{{tender.title}}</h3>
+                  <span class="badge" [ngClass]="{
+                    'badge-primary': tender.category === 'construction',
+                    'badge-success': tender.category === 'it',
+                    'badge-info': tender.category === 'healthcare'
+                  }">{{tender.category | titlecase}}</span>
+                </div>
+                <div class="tender-meta">
+                  <span><i class="fas fa-map-marker-alt"></i> {{tender.location}}</span>
+                  <span><i class="fas fa-calendar-alt"></i> Closing: {{tender.deadline | date:'mediumDate'}}</span>
+                  <span><i class="fas fa-building"></i> {{tender.organization}}</span>
+                </div>
+               <p class="tender-description">{{ truncateText(tender.description, 150) }}</p>
+                <div class="tender-actions">
+                  <a [routerLink]="['/tenders', tender.id]" class="btn btn-sm btn-primary">
+                    <i class="fas fa-file-alt"></i> View Details
+                  </a>
+                  <button class="btn btn-sm btn-outline" (click)="addToWatchlist(tender.id)">
+                    <i class="far fa-bell"></i> Watchlist
+                  </button>
+                  <button class="btn btn-sm btn-outline" (click)="startBidProcess(tender.id)">
+                    <i class="fas fa-handshake"></i> Start Bid
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <a routerLink="/tenders" class="btn btn-outline-primary">View All Tenders</a>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-4">
+          <!-- Action Required Section -->
+          <section class="action-required">
+            <div class="section-header">
+              <h2><i class="fas fa-exclamation-circle"></i> Action Required</h2>
+              <span class="badge badge-danger">{{requiredActions.length}}</span>
+            </div>
+            <div class="action-list">
+              <div class="action-item" *ngFor="let action of requiredActions">
+                <div class="action-icon">
+                  <i class="fas fa-{{action.icon}}"></i>
+                </div>
+                <div class="action-content">
+                  <h4>{{action.title}}</h4>
+                  <p>{{action.description}}</p>
+                  <div class="action-due">
+                    <i class="fas fa-clock"></i> Due: {{action.dueDate | date:'shortDate'}}
+                  </div>
+                  <button class="btn btn-sm btn-action" (click)="handleAction(action.id)">
+                    {{action.buttonText}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Awards Section -->
+          <section class="recent-awards">
+            <div class="section-header">
+              <h2><i class="fas fa-trophy"></i> Recent Awards</h2>
+              <a routerLink="/bid/awarded" class="view-all">View All</a>
+            </div>
+            <div class="award-list">
+              <div class="award-item" *ngFor="let award of recentAwards">
+                <div class="award-badge">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="award-details">
+                  <strong>{{award.tenderName}}</strong>
+                  <span>{{award.awardDate | date:'mediumDate'}}</span>
+                </div>
+                <div class="award-amount">
+                  {{award.amount | currency}}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Watchlist Section -->
+          <section class="watchlist-section">
+            <div class="section-header">
+              <h2><i class="fas fa-bookmark"></i> My Watchlist</h2>
+              <a routerLink="/watchlist" class="view-all">View All</a>
+            </div>
+            <div class="watchlist-items">
+              <div class="watchlist-item" *ngFor="let item of watchlistItems">
+                <div class="watchlist-content">
+                  <h4>{{item.tenderName}}</h4>
+                  <div class="watchlist-meta">
+                    <span><i class="fas fa-calendar-alt"></i> {{item.deadline | date:'shortDate'}}</span>
+                    <span><i class="fas fa-map-marker-alt"></i> {{item.location}}</span>
+                  </div>
+                </div>
+                <div class="watchlist-actions">
+                  <button class="btn btn-sm btn-outline" (click)="removeFromWatchlist(item.id)">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="text-center" *ngIf="watchlistItems.length === 0">
+                <p>No items in your watchlist</p>
+                <a routerLink="/tenders" class="btn btn-sm btn-outline-primary">
+                  <i class="fas fa-plus"></i> Add Tenders
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Resources Widget -->
+          <section class="resources-widget">
+            <div class="section-header">
+              <h2><i class="fas fa-book"></i> Resources</h2>
+            </div>
+            <div class="resource-list">
+              <a href="#" class="resource-item">
+                <i class="fas fa-file-pdf"></i>
+                <span>Tender Writing Guide</span>
+              </a>
+              <a href="#" class="resource-item">
+                <i class="fas fa-video"></i>
+                <span>Bidding Process Tutorial</span>
+              </a>
+              <a href="#" class="resource-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Market Trends Report</span>
+              </a>
+              <a href="#" class="resource-item">
+                <i class="fas fa-gavel"></i>
+                <span>Procurement Regulations</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="enterprise-footer">
+      <div class="footer-content">
+      
+        <div class="footer-section">
+          <h4>Subscribe to Newsletter</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address"><br>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Tender Management System. All rights reserved.</p>
+      
+      </div>
+    </footer>
+  </main>
+</div>

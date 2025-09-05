@@ -1,0 +1,24 @@
+<div>
+  <h2>Work Report</h2>
+  <input type="number" [(ngModel)]="tenderIdForReport" placeholder="Enter Tender ID" />
+  <button (click)="getWorkReport()">Load Report</button>
+
+  <table *ngIf="reportList.length > 0" border="1">
+    <thead>
+      <tr>
+        <th>Progress Percentage</th>
+        <th>Payable Amount</th>
+        <th>Updated By</th>
+        <th>Updated Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of reportList">
+        <td>{{ item.progressPercentage }}</td>
+        <td>{{ item.payableAmount }}</td>
+        <td>{{ item.updatedBy }}</td>
+        <td>{{ item.updatedDate | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

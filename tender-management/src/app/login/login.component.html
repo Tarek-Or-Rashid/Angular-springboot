@@ -1,0 +1,96 @@
+<div class="login-wrapper d-flex align-items-center justify-content-center vh-100">
+  <div class="overlay"></div>
+
+  <div class="card shadow-lg p-4 login-card">
+    <div class="text-center mb-3">
+      <div class="image-container">
+        <img src="assets/09-Tender-1920X560.jpg" alt="Tender System" class="img-fluid rounded" />
+        <div class="image-overlay">
+          <h3 class="overlay-text">Tender Management System</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggle buttons -->
+    <div class="text-center mb-3">
+      <button class="btn btn-outline-primary me-2" (click)="isLogin = true">Login</button>
+      <button class="btn btn-outline-secondary" (click)="isLogin = false">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <form *ngIf="isLogin" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <h3 class="text-center mb-4 text-primary">
+        <i class="bi bi-box-arrow-in-right"></i> Login
+      </h3>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter email">
+        <div *ngIf="submitted && loginForm.controls['email'].errors" class="text-danger">
+          Valid email is required.
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+        <div *ngIf="submitted && loginForm.controls['password'].errors" class="text-danger">
+          Password is required.
+        </div>
+      </div>
+
+      <!-- Role -->
+      
+
+      <button type="submit" class="btn btn-primary w-100">
+        <i class="bi bi-lock-fill"></i> Login
+      </button>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+    </form>
+
+   <!-- Registration Form -->
+<form *ngIf="!isLogin" (ngSubmit)="onRegisterSubmit()">
+  <h3 class="text-center mb-4 text-success">
+    <i class="bi bi-person-plus-fill"></i> Register
+  </h3>
+
+  <!-- Name -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name</label>
+    <input type="text" [(ngModel)]="userPayload.username" name="username" class="form-control" id="name" placeholder="Enter your name" required>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <label for="registerEmail" class="form-label">Email</label>
+    <input type="email" [(ngModel)]="userPayload.email" name="email" class="form-control" id="registerEmail" placeholder="Enter email" required>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <label for="registerPassword" class="form-label">Password</label>
+    <input type="password" [(ngModel)]="userPayload.password" name="password" class="form-control" id="registerPassword" placeholder="Enter password" required>
+  </div>
+
+  <!-- Role -->
+  <div class="mb-3">
+    <label for="registerRole" class="form-label">Role</label>
+    <select [(ngModel)]="userPayload.role" name="role" class="form-select" id="registerRole" required>
+      <option value="" disabled>Select Role</option>
+      <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success w-100">
+    <i class="bi bi-person-plus"></i> Register
+  </button>
+
+  <div *ngIf="registrationError" class="alert alert-danger mt-3">{{ registrationError }}</div>
+  <div *ngIf="registrationSuccess" class="alert alert-success mt-3">{{ registrationSuccess }}</div>
+</form>
+
+  </div>
+</div>

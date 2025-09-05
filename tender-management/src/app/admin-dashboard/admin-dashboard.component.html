@@ -1,0 +1,336 @@
+<header>
+  <div class="container header-container">
+    <div class="logo">
+
+      <h1>Tender<span>Pro</span></h1>
+    </div>
+    <nav id="nav">
+      <ul>
+
+        <li class="nav-item">
+          <a routerLink="/admin-wallet" class="nav-link">
+            <i class="fas fa-wallet"></i>
+            <span>Admin Wallet</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/final-report" class="nav-link">
+            <i class="fas fa-wallet"></i>
+            <span>reports</span>
+          </a>
+        </li>
+        <a routerLink="/sources">Sources</a>
+        <a routerLink="/locations">Locations</a>
+        <a routerLink="/categories">Categories</a>
+      </ul>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+</header>
+
+
+<aside class="app-sidebar" id="sidebar">
+  <nav class="sidebar-nav">
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Main</div>
+      <a routerLink="/dashboard" class="nav-link active">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+      </a>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Tender Management</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('tender')">
+          <i class="fas fa-tasks"></i>
+          <span>Tender Options</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.tender">
+          <a routerLink="/tender-list" class="dropdown-item"><i class="fas fa-list"></i> Tender List</a>
+          <a routerLink="/create-tender" class="dropdown-item"><i class="fas fa-plus-circle"></i> Create Tender</a>
+          <a routerLink="/tender-details" class="dropdown-item"><i class="fas fa-file-alt"></i> Tender Details</a>
+          <a routerLink="/publish-tender" class="dropdown-item"><i class="fas fa-bullhorn"></i> Publish Tender</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Bid Management</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('bid')">
+          <i class="fas fa-gavel"></i>
+          <span>Bid Options</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.bid">
+          <a routerLink="/bid-evaluation" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Bid</a>
+          <a routerLink="/my-bids" class="dropdown-item"><i class="fas fa-folder-open"></i> My Bids</a>
+          <a routerLink="/bid-details" class="dropdown-item"><i class="fas fa-search"></i> Bid Details</a>
+          <a routerLink="/bid-list-admin" class="dropdown-item"><i class="fas fa-list-ol"></i> Bid List (Admin)</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Evaluation</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('evaluation')">
+          <i class="fas fa-clipboard-check"></i>
+          <span>Evaluation Options</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.evaluation">
+          <a routerLink="/bid-evaluation">Bid Evaluation</a>
+          <a routerLink="/evaluation-history" class="dropdown-item"><i class="fas fa-history"></i> Evaluation
+            History</a>
+          <a routerLink="/evaluation-logs" class="dropdown-item"><i class="fas fa-clipboard-list"></i> Evaluation
+            Logs</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">User Management</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('user')">
+          <i class="fas fa-users-cog"></i>
+          <span>User Options</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.user">
+          <a routerLink="/user-list" class="dropdown-item">
+            <i class="fas fa-users"></i> User List
+          </a>
+          <a routerLink="/create-user" class="dropdown-item">
+            <i class="fas fa-user-plus"></i> Create User
+          </a>
+          <a routerLink="/edit-user" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit User
+          </a>
+          <a routerLink="/user-roles" class="dropdown-item">
+            <i class="fas fa-user-cog"></i> User Roles
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Reports</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('report')">
+          <i class="fas fa-chart-bar"></i>
+          <span>Report Options</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.report">
+          <a routerLink="/monthly-reports" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Monthly Reports</a>
+          <a routerLink="/category-reports" class="dropdown-item"><i class="fas fa-chart-pie"></i> Category Reports</a>
+          <a routerLink="/export-reports" class="dropdown-item"><i class="fas fa-file-pdf"></i> Export Reports</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="nav-group">
+      <div class="nav-group-title">Settings</div>
+      <div class="dropdown-container">
+        <a class="nav-link" (click)="toggleDropdown('settings')">
+          <i class="fas fa-cogs"></i>
+          <span>System Settings</span>
+          <i class="fas fa-caret-down dropdown-icon"></i>
+        </a>
+        <div class="dropdown-items" *ngIf="isOpen.settings">
+          <a routerLink="/system-settings" class="dropdown-item"><i class="fas fa-cog"></i> System Settings</a>
+          <a routerLink="/security" class="dropdown-item"><i class="fas fa-shield-alt"></i> Security</a>
+          <a routerLink="/notifications" class="dropdown-item"><i class="fas fa-bell"></i> Notifications</a>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+</aside>
+
+
+
+<div class="hero">
+  <div class="container">
+    <h1>Welcome to Tender Management System</h1>
+    <p>Manage tenders, bids, and evaluations efficiently.</p>
+
+  </div>
+</div>
+
+
+<section class="section features" id="features">
+  <div class="container">
+    <h2 class="section-title">Powerful Features</h2>
+    <p class="section-subtitle">Everything you need for efficient tender management in one platform</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-file-contract"></i>
+        </div>
+        <h3>Tender Management</h3>
+        <p>Create, publish, and manage tenders with ease. Set deadlines, attach documents, and track submissions.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Bid Submission</h3>
+        <p>Simple and secure bid submission process with document uploads and real-time updates.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Evaluation Tools</h3>
+        <p>Comprehensive evaluation tools with scoring, comments, and audit trails for fair assessment.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>Notifications</h3>
+        <p>Real-time alerts for tender updates, bid status changes, and important deadlines.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Security</h3>
+        <p>Enterprise-grade security with role-based access control and complete audit trails.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <h3>Reporting</h3>
+        <p>Comprehensive reports and analytics to track performance and make data-driven decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how-it-works" id="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">Simple steps to manage your tenders efficiently</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Create Tender</h3>
+        <p>Organizations create and publish tender documents with all requirements and specifications.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Bid Submission</h3>
+        <p>Vendors review tender documents and submit their bids with required documents.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Evaluation</h3>
+        <p>Tender committee evaluates bids based on predefined criteria with full transparency.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Award & Notify</h3>
+        <p>Successful bidder is selected and all participants are notified of the outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h2>500+</h2>
+        <p>Tenders Managed</p>
+      </div>
+
+      <div class="stat-item">
+        <h2>1200+</h2>
+        <p>Registered Vendors</p>
+      </div>
+
+      <div class="stat-item">
+        <h2>95%</h2>
+        <p>Satisfaction Rate</p>
+      </div>
+
+      <div class="stat-item">
+        <h2>24/7</h2>
+        <p>Support Available</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to Transform Your Tender Process?</h2>
+    <p>Join hundreds of organizations and vendors who trust TenderPro for transparent, efficient tender management.</p>
+    <a href="/register" class="btn btn-accent">Start Free Trial</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo">
+
+          <h1>Tender<span>Pro</span></h1>
+        </div>
+        <p>Professional tender management solutions for organizations and vendors.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, City</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-envelope"></i> info@tenderpro.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 TenderPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+</footer>

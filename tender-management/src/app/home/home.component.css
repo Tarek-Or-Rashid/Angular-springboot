@@ -1,0 +1,236 @@
+ .hero-section {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color:rgb(21, 158, 151);
+    padding: 5rem 0;
+  }
+  
+  .tender-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tender-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .tender-card .card-header {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+    border-radius: 50rem;
+  }
+  
+  .status-open {
+    background-color: #28a745;
+  }
+  
+  .status-closing {
+    background-color: #ffc107;
+    color: var(--dark-text);
+  }
+  
+  .status-closed {
+    background-color: #dc3545;
+  }
+  
+  .category-badge {
+    background-color: var(--accent-color);
+    color: rgb(255, 255, 255);
+  }
+  
+  .search-card {
+    border: none;
+    box-shadow: 0 5px 15px rgba(158, 8, 8, 0.1);
+    border-radius: 0.5rem;
+  }
+  
+  .agency-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  
+  .agency-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(196, 8, 8, 0.1);
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+  }
+  
+  .cta-section {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+  }
+  
+  /* General Resets */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #0d6efd;
+  }
+  
+  .navbar .nav-link {
+    font-weight: 500;
+  }
+  
+  .navbar .btn {
+    font-weight: 500;
+  }
+  
+  /* Status Badges */
+  .status-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .status-open {
+    background-color: #28a745;
+  }
+  
+  .status-closing {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  .status-closed {
+    background-color: #dc3545;
+  }
+  
+  /* Category Badge */
+  .category-badge {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+  }
+  
+  /* Tender Cards */
+  .tender-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.03);
+  }
+  
+  .tender-card:hover {
+    transform: scale(1.015);
+  }
+  
+  .tender-card .card-header {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .tender-card .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .tender-card .card-footer {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Features Section */
+  .bg-light .card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  .bg-light .card i {
+    font-size: 2.5rem;
+  }
+  
+  /* Agency Cards */
+  .agency-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .agency-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.15);
+  }
+  
+  .agency-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  /* Call to Action */
+  .cta-section {
+    background: linear-gradient(135deg, #d0dcee, #99dfe9);
+    color: white;
+    border-top: 5px solid #442ab4;
+    border-bottom: 5px solid #fff;
+  }
+  
+  .cta-section .btn-light {
+    background-color: white;
+    color: #0d6efd;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-section .btn-light:hover {
+    background-color: #17b867;
+  }
+  
+  .cta-section .btn-outline-light:hover {
+    background-color: white;
+    color: #0d6efd;
+  }
+  
+  /* Responsive Text Sizes */
+  @media (max-width: 768px) {
+    .cta-section h2 {
+      font-size: 1.75rem;
+    }
+  
+    .cta-section p {
+      font-size: 1rem;
+    }
+  }
+  .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,315 @@
+
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-7">
+              <h1 class="display-4 fw-bold mb-4"> Tenders management system  & Procurement Opportunities</h1>
+              <p class="lead mb-4">Access thousands of government and private sector tenders from around the world in one place.</p>
+              <div class="d-flex gap-2">
+  <a routerLink="/login" class="btn btn-primary btn-lg px-4"><i class="bi bi-search"></i> Browse Tenders</a>
+  <a routerLink="/login" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-play-circle"></i> How It Works</a>
+</div>
+
+<!-- In Search Section -->
+
+<!-- In Tender Cards -->
+
+          </div>
+          
+      </div>
+  </div>
+</section>
+
+<!-- Search Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+      <div class="search-card card">
+          <div class="card-body p-4">
+              <h2 class="h4 mb-4 text-center"><i class="bi bi-search"></i> Find Relevant Tenders</h2>
+              <form class="row g-3">
+                  <div class="col-md-6">
+                      <label for="keyword" class="form-label">Keywords</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                          <input type="text" class="form-control" id="keyword" placeholder="e.g. construction, IT services, healthcare">
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="country" class="form-label">Country</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-globe"></i></span>
+                          <select id="country" class="form-select">
+                              <option selected>All Countries</option>
+                              <option>Australia</option>
+                              <option>United States</option>
+                              <option>United Kingdom</option>
+                              <option>Canada</option>
+                              <option>India</option>
+                              <option>European Union</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="category" class="form-label">Category</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-tags"></i></span>
+                          <select id="category" class="form-select">
+                              <option selected>All Categories</option>
+                              <option>Building & Construction</option>
+                              <option>IT & Telecommunications</option>
+                              <option>Professional Services</option>
+                              <option>Healthcare</option>
+                              <option>Transport & Infrastructure</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="publish-date" class="form-label">Published After</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                          <input type="date" class="form-control" id="publish-date">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="closing-date" class="form-label">Closing Before</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                          <input type="date" class="form-control" id="closing-date">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="value" class="form-label">Estimated Value</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                          <select id="value" class="form-select">
+                              <option selected>Any Value</option>
+                              <option>Under $50,000</option>
+                              <option>$50,000 - $250,000</option>
+                              <option>$250,000 - $1M</option>
+                              <option>Over $1M</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-12 text-center">
+  <button type="button" routerLink="/login" class="btn btn-primary btn-lg px-5"><i class="bi bi-search"></i> Search Tenders</button>
+</div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Tender Listings -->
+<section class="py-5">
+  <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 ><a routerLink="/latest-tenders">Latest Tenders</a>
+            </h2>
+          <a href="#" class="btn btn-outline-primary"><i class="bi bi-list-ul"></i> View All</a>
+      </div>
+      
+      <div class="row g-4">
+          <!-- Tender Card 1 -->
+          <div class="col-md-6 col-lg-4">
+              <div class="tender-card card h-100">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <span class="status-badge status-open">Open</span>
+                      <small class="text-white-50">Ref: WBG-2023-4567</small>
+                  </div>
+                  <div class="card-body">
+                      <h3 class="h5 card-title">Urban Transport Infrastructure Project</h3>
+                      <span class="badge category-badge mb-2">Transport</span>
+                      <p class="card-text">Design and construction of urban transport infrastructure in Southeast Asia.</p>
+                      <ul class="list-unstyled small">
+                          <li><i class="bi bi-building"></i> <strong>Agency:</strong> World Bank</li>
+                          <li><i class="bi bi-globe"></i> <strong>Country:</strong> Multiple</li>
+                          <li><i class="bi bi-cash-stack"></i> <strong>Value:</strong> $25M+</li>
+                          <li><i class="bi bi-calendar-check"></i> <strong>Closes:</strong> 15 July 2023</li>
+                      </ul>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                      <div class="d-flex justify-content-between">
+                          <a href="#" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> View</a>
+                          <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-bookmark"></i> Save</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Tender Card 2 -->
+          <div class="col-md-6 col-lg-4">
+              <div class="tender-card card h-100">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <span class="status-badge status-closing">Closing Soon</span>
+                      <small class="text-white-50">Ref: UN-IT-2025-789</small>
+                  </div>
+                  <div class="card-body">
+                      <h3 class="h5 card-title">Enterprise IT Solutions Provider</h3>
+                      <span class="badge category-badge mb-2">IT Services</span>
+                      <p class="card-text">Procurement of enterprise IT solutions for UN agencies worldwide.</p>
+                      <ul class="list-unstyled small">
+                          <li><i class="bi bi-building"></i> <strong>Agency:</strong> United Nations</li>
+                          <li><i class="bi bi-globe"></i> <strong>Country:</strong> Global</li>
+                          <li><i class="bi bi-cash-stack"></i> <strong>Value:</strong> $10M - $15M</li>
+                          <li><i class="bi bi-calendar-check"></i> <strong>Closes:</strong> 7 June 2025</li>
+                      </ul>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                      <div class="d-flex justify-content-between">
+                          <a href="#" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> View</a>
+                          <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-bookmark"></i> Save</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Tender Card 3 -->
+          <div class="col-md-6 col-lg-4">
+              <div class="tender-card card h-100">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <span class="status-badge status-closed">Closed</span>
+                      <small class="text-white-50">Ref: EU-HC-2025-123</small>
+                  </div>
+                  <div class="card-body">
+                      <h3 class="h5 card-title">Medical Equipment Supply</h3>
+                      <span class="badge category-badge mb-2">Healthcare</span>
+                      <p class="card-text">Supply of advanced medical equipment to European hospitals.</p>
+                      <ul class="list-unstyled small">
+                          <li><i class="bi bi-building"></i> <strong>Agency:</strong> European Union</li>
+                          <li><i class="bi bi-globe"></i> <strong>Country:</strong> EU Members</li>
+                          <li><i class="bi bi-cash-stack"></i> <strong>Value:</strong> $5M - $8M</li>
+                          <li><i class="bi bi-calendar-check"></i> <strong>Closed:</strong> 20 May 2023</li>
+                      </ul>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                      <div class="d-flex justify-content-between">
+                          <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-archive"></i> Archive</a>
+                          <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Documents</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+      <h2 class="text-center mb-5"><i class="bi bi-star-fill"></i> Why Choose Tender Mangement system?</h2>
+      <div class="row g-4">
+          <div class="col-md-4">
+              <div class="card h-100 border-0 bg-transparent text-center">
+                  <div class="card-body">
+                      <div class="display-4 text-primary mb-3">
+                          <i class="bi bi-globe2"></i>
+                      </div>
+                      <h3 class="h4">Global Coverage</h3>
+                      <p class="card-text">Access tenders from governments and organizations worldwide in one centralized platform.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card h-100 border-0 bg-transparent text-center">
+                  <div class="card-body">
+                      <div class="display-4 text-primary mb-3">
+                          <i class="bi bi-bell-fill"></i>
+                      </div>
+                      <h3 class="h4">Custom Alerts</h3>
+                      <p class="card-text">Get notified about new tenders matching your business profile and interests.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card h-100 border-0 bg-transparent text-center">
+                  <div class="card-body">
+                      <div class="display-4 text-primary mb-3">
+                          <i class="bi bi-file-earmark-text"></i>
+                      </div>
+                      <h3 class="h4">Detailed Information</h3>
+                      <p class="card-text">Comprehensive tender documents, requirements, and submission guidelines.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Government Agencies -->
+<section class="py-5">
+  <div class="container">
+      <h2 class="text-center mb-5"><i class="bi bi-building"></i> Browse by Organization</h2>
+      <div class="row g-4">
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-building display-6 mb-3"></i>
+                  <h3 class="h5">World Bank</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-globe display-6 mb-3"></i>
+                  <h3 class="h5">United Nations</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-flag display-6 mb-3"></i>
+                  <h3 class="h5">European Union</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-bank display-6 mb-3"></i>
+                  <h3 class="h5">ADB</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-house display-6 mb-3"></i>
+                  <h3 class="h5">Bangladesh Government</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-building display-6 mb-3"></i>
+                  <h3 class="h5">NGO</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-building display-6 mb-3"></i>
+                  <h3 class="h5">Personal</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+          <div class="col-6 col-md-3">
+              <div class="agency-card card">
+                  <i class="bi bi-building display-6 mb-3"></i>
+                  <h3 class="h5">View All</h3>
+                  <a href="#" class="stretched-link"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="cta-section py-5">
+  <div class="container text-center">
+      <h2 class="display-5 fw-bold mb-4">Ready to Grow Your Business with Global Tenders?</h2>
+      <p class="lead mb-4">Join thousands of businesses winning contracts through Tender management system</p>
+      <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="btn btn-light btn-lg px-4"><i class="bi bi-person-plus"></i> Sign Up Free</a>
+          <a href="#" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-play-circle"></i> Watch Demo</a>
+      </div>
+  </div>
+</section>
