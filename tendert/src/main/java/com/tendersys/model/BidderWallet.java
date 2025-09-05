@@ -11,6 +11,21 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Bidder_wallet")
 public class BidderWallet {
+   
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Long userId;
+    private Long tenderId;
+    private Long bidId;
+
+    private double amount; 
+    private String paymentMethod; 
+    private LocalDateTime transactionDate;
+
+
+	
     public Long getId() {
 		return id;
 	}
@@ -53,16 +68,5 @@ public class BidderWallet {
 	public void setTransactionDate(LocalDateTime transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private Long userId;
-    private Long tenderId;
-    private Long bidId;
-
-    private double amount; 
-    private String paymentMethod; 
-    private LocalDateTime transactionDate;
-
    
+}
