@@ -35,7 +35,7 @@ public class TenderPaymentService {
         Tender tender = tenderRepository.findById(tenderId)
                 .orElseThrow(() -> new RuntimeException("Tender not found with ID: " + tenderId));
 
-        // Capture current timestamp once
+        
         LocalDateTime now = LocalDateTime.now();
 
         // Save payment details to AdminFeePayment
@@ -45,7 +45,7 @@ public class TenderPaymentService {
         // Save payment info to AdminWallet for record
         AdminWallet walletEntry = new AdminWallet();
         walletEntry.setTenderId(tenderId);
-        walletEntry.setBidId(null); // No bid linked here
+        walletEntry.setBidId(null); 
         walletEntry.setBidderName(bidderName);
         walletEntry.setAmount(amount);
         walletEntry.setPaymentMethod(paymentMethod);
