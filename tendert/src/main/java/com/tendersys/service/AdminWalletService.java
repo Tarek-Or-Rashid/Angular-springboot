@@ -31,7 +31,7 @@ public class AdminWalletService {
     }
 
     public AdminWallet addToAdminWallet(AdminWallet wallet) {
-        // Any business logic if needed
+        
         return adminWalletRepository.save(wallet);
     }
     public AdminWallet creditAmount(Double amount) {
