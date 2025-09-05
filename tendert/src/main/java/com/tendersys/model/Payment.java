@@ -10,6 +10,26 @@ import java.time.LocalDateTime;
 @Table(name = "payments")
 public class Payment {
 
+@Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
+
+ private Long tenderId;
+ private Long bidId;
+ private String bidderName;
+ private Double amount;
+
+ private String paymentMethod; 
+ private String mobilePaymentMethod; 
+
+ private String accountNumber;
+ private String cardNumber;
+ private String expiryDate;
+ private String cvv;
+ private String mobileNumber;
+
+ private LocalDateTime paymentDate;
+
  public Long getId() {
 		return id;
 	}
@@ -113,26 +133,4 @@ public class Payment {
 	public void setPaymentDate(LocalDateTime paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-
-@Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Long id;
-
- private Long tenderId;
- private Long bidId;
- private String bidderName;
- private Double amount;
-
- private String paymentMethod; // 'bank', 'card', 'mobile'
- private String mobilePaymentMethod; // 'bkash', 'nogod', 'upay' or null
-
- private String accountNumber;
- private String cardNumber;
- private String expiryDate;
- private String cvv;
- private String mobileNumber;
-
- private LocalDateTime paymentDate;
-
- // getters and setters
 }
